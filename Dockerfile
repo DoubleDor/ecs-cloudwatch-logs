@@ -22,7 +22,7 @@ RUN echo "if \$syslogfacility-text == 'local6' and \$programname == 'httpd' then
 	echo "if \$syslogfacility-text == 'local7' and \$programname == 'httpd' then ~" >> /etc/rsyslog.d/httpd.conf
 
 COPY awslogs.conf awslogs.conf
-RUN python ./awslogs-agent-setup.py -n -r us-east-1 -c /awslogs.conf
+RUN python ./awslogs-agent-setup.py -n -r us-west-2 -c /awslogs.conf
 
 RUN pip install supervisor
 COPY supervisord.conf /usr/local/etc/supervisord.conf
